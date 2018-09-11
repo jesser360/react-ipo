@@ -1,0 +1,25 @@
+.event_list {
+  border-collapse: collapse;
+  overflow-y:scroll;
+  height:250px;
+  display:block;
+}
+tr {
+  border: solid;
+  border-width: 1px 0;
+}
+tr:first-child {
+  border-top: none;
+}
+tr:last-child {
+  border-bottom: none;
+}
+tr.spaceUnder>td {
+  padding: 1em;
+}
+.e_input{
+  margin:5px;
+}
+.close_event:hover{
+  color:darkgray;
+}
