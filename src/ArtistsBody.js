@@ -12,6 +12,7 @@ class ArtistsBody extends Component {
         artists:this.props.artists,
         currentArtist:this.props.currentArtist,
         showAllArtists:this.props.showAllArtists,
+        auth_token:this.props.auth_token
       };
       this.toggleAllArtists = this.toggleAllArtists.bind(this)
       this.selectArtist = this.selectArtist.bind(this)
@@ -19,14 +20,18 @@ class ArtistsBody extends Component {
     }
 
     selectArtist(id){
-      fetch('http://localhost:3001/api/v1/artists/'+id+'.json')
-        .then((response) => {return response.json()})
-        .then((data) => {this.setState({
-           currentArtist: data,
-           showAllArtists:false
-          })
-          this.props.currentArtistToMain(data,this.state.showAllArtists)
-      });
+      axios.get('http://localhost:3001/api/v1/artists/'+id+'.json',{ 'headers': { 'Authorization': this.state.authToken }})
+      .then(response => {
+        this.setState({currentArtist:response.data,showAllArtists:false})
+        this.props.currentArtistToMain(response.data,false)
+      })
+    }
+    componentWillReceiveProps(props) {
+      axios.get('http://localhost:3001/api/v1/artists.json',{ 'headers': { 'Authorization': props.authToken }})
+      .then(response => {
+        this.setState({artists: response.data,authToken:props.authToken})
+      })
+      .catch(error => console.log(error))
     }
 
     toggleAllArtists(){
@@ -35,13 +40,6 @@ class ArtistsBody extends Component {
       })
     }
 
-    componentDidMount() {
-      axios.get('http://localhost:3001/api/v1/artists.json')
-      .then(response => {
-        this.setState({artists: response.data})
-      })
-      .catch(error => console.log(error))
-    }
 
   render(){
       return(

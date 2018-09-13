@@ -9,18 +9,20 @@ class CalendarBody extends Component {
     super(props);
     this.state = {
       currentArtist:this.props.currentArtist,
-      events:[]
+      events:this.props.events,
+      authToken:this.props.authToken
     }
   }
 
-  componentWillReceiveProps(props){
-    this.setState({currentArtist: props.id})
-      axios.get('http://localhost:3001/api/v1/events/artist/'+props.currentArtist.id+'.json')
+  componentWillReceiveProps(newProps){
+    if(newProps.currentArtist.id){
+      axios.get('http://localhost:3001/api/v1/tasks/artist/'+newProps.currentArtist.id+'.json',{ 'headers': { 'Authorization': this.props.authToken }})
       .then(response => {
-        this.setState({events: response.data})
+      this.setState({ events: response.data });
       })
-      .catch(error => console.log(error))
+    }
   }
+
     render() {
       return (
         <div id="example-component">
@@ -36,6 +38,13 @@ class CalendarBody extends Component {
           editable= {true}
           eventLimit= {true} // allow "more" link when too many events
           events = {this.state.events}
+          eventClick = {
+            function(calEvent, jsEvent, view, resourceObj) {
+              console.log(calEvent.title)
+            }
+          }
+          dayClick= {(date, jsEvent, view) =>this.props.addNewEvent( date.format() )}
+
       />
         </div>
       );

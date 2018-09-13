@@ -5,7 +5,7 @@ class Artist extends Component{
   constructor(props) {
       super(props);
       this.state = {
-          showAllArtists: this.props.showAllArtists,
+          showAllArtists: this.props.showAllArtists
       };
   }
 

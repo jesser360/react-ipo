@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const NewEvent = (props) => {
   let formFields = {}
 
   return(
-    <div hidden className='section_event'>
+    <div className='section_event'>
       <div className='row'>
         <div className='col-md-6'>
           <h6>Create a new event from: </h6>
-          <input className ='event_date' ref={input => formFields.start = input} placeholder='Start date' type='date'/>
+          <input className ='event_date' defaultValue={props.clickedDate} ref={input => formFields.start = input} placeholder='Start date' type='date'/>
           <h6>Untill: </h6>
           <input className ='event_date' ref={input => formFields.end = input} placeholder='End date' type='date'/>
           All Day? <input className ='all_day' ref={input => formFields.allDay = input} type='checkbox'/>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import AllEvents from './AllEvents';
 import NewEvent from './NewEvent';
+import axios from 'axios'
+
 
 class EventsBody extends Component {
 
@@ -8,8 +10,9 @@ class EventsBody extends Component {
       super(props);
       this.state = {
         events: [],
-        isShowing:true,
-        currentArtist:[]
+        showNewEventForm:this.props.showNewEventForm,
+        currentArtist:this.props.currentArtist,
+        authToken:this.props.authToken
       };
       this.handleNewEventSubmit = this.handleNewEventSubmit.bind(this)
       this.addNewEvent = this.addNewEvent.bind(this)
@@ -17,58 +20,50 @@ class EventsBody extends Component {
       this.deleteEvent = this.deleteEvent.bind(this)
       this.handleUpdateEvent = this.handleUpdate.bind(this);
       this.updateEvent = this.updateEvent.bind(this)
-      this.toggleNewEventForm = this.toggleNewEventForm.bind(this)
     }
 
 
-    componentWillReceiveProps(nextProps){
-      this.setState({currentArtist: nextProps.currentArtist}, () => {
-          this.updateCalender()
-      });
-    }
-
-    toggleNewEventForm(){
-      // $('.section_event').hide();
-      // $('.event_labels').show();
-      // $('.event_list').show();
-    }
+    // componentWillReceiveProps(nextProps){
+      // if(nextProps.currentArtist.length>0){
+      //   console.log(nextProps)
+      //   this.setState({currentArtist: nextProps.currentArtist}, () => {
+      //     // this.updateCalender()
+      //   });
+      //   this.setState({showNewEventForm: nextProps.showNewEventForm});
+      // }
+    // }
 
     handleNewEventSubmit(start,end,allDay,title,genre,note){
-      // $('.section_event').hide();
-      // $('.event_title').val('')
-      // $('.event_genre').val('')
-      // $('.event_notes').val('')
-      let body = JSON.stringify({
-        event: {start: start, end: end, allDay:allDay, title:title, genre:genre, note:note,artist_id:this.state.currentArtist.id}
-      })
-      fetch('http://localhost:3001/api/v1/events', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: body,
-      }).then((response) => {return response.json()})
-        .then((event) => {
-          this.addNewEvent(event)
+      var taskObj = {start: start, end: end, allDay:true, title:title, genre:genre, note:note,artist_id:this.props.currentArtist.id}
+      axios.post(`http://localhost:3001/api/v1/tasks`,{task:taskObj},{ 'headers': { 'Authorization': this.props.authToken}})
+      .then((response) => {
+          this.addNewEvent(taskObj)
         })
+      // let body = JSON.stringify({
+      //   event: {start: start, end: end, allDay:allDay, title:title, genre:genre, note:note,artist_id:this.state.currentArtist.id}
+      // })
+      // fetch('http://localhost:3001/api/v1/events', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: body,
+      // }).then((response) => {return response.json()})
+      //   .then((event) => {
+      //     this.addNewEvent(event)
+      //   })
     }
     addNewEvent(event){
       this.setState({
-        events: this.state.events.concat(event)
+        events: this.state.events.concat(event),
+        showNewEventForm:false,
       })
-      // reRenderCalender(event);
-      // $('.section_event').hide();
-      // $('.event_labels').show();
-      // $('.event_list').show();
+      this.props.currentEventsToMain(this.state.event,false)
     }
 
     handleDeleteEvent(id){
-      fetch(`http://localhost:3001/api/v1/events/${id}`,  {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then((reponse) => {
+      axios.delete(`http://localhost:3001/api/v1/tasks/${id}`,{ 'headers': { 'Authorization': this.props.authToken}})
+      .then((reponse) => {
         this.deleteEvent(id)
       })
     }
@@ -77,27 +72,34 @@ class EventsBody extends Component {
           this.setState({
             events: newEvents
           })
+        this.props.currentEventsToMain(this.state.events,false)
     }
 
     updateCalender(){
       let artist_id = this.state.currentArtist.id;
-      fetch('http://localhost:3001/api/v1/events/artist/'+artist_id+'.json')
+      fetch('http://localhost:3001/api/v1/tasks/artist/'+artist_id+'.json')
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ events: data }) });
     }
 
-  handleUpdate(event){
-    fetch(`http://localhost:3001/api/v1/events/${event.id}`,
-    {
-      method: 'PUT',
-      body: JSON.stringify({event: event}),
-      headers: {
-        'Content-Type': 'application/json'
+    componentWillReceiveProps(newProps){
+      // console.log(newProps)
+      // GETS ALL EVENTS FOR SELECTED ARTIST
+      if(newProps.currentArtist.id){
+        axios.get('http://localhost:3001/api/v1/tasks/artist/'+newProps.currentArtist.id+'.json',{ 'headers': { 'Authorization': this.props.authToken }})
+        .then(response => {
+        this.setState({ events: response.data ,showNewEventForm:newProps.showNewEventForm});
+        })
       }
-    }).then((response) => {
-        this.updateEvent(event)
+    }
+
+  handleUpdate(taskObj){
+    axios.put(`http://localhost:3001/api/v1/tasks/${taskObj.id}`,{task:taskObj},{ 'headers': { 'Authorization': this.props.authToken}})
+    .then((response) => {
+        this.updateEvent(taskObj)
       })
   }
+
   updateEvent(event){
     let eventIndex = this.state.events.findIndex((f) => f.id === event.id);
     let newEvents = this.state.events.filter((f) => f.id !== event.id);
@@ -105,31 +107,21 @@ class EventsBody extends Component {
     this.setState({
       events: newEvents
     })
-    // updateCalender(this.state.events);
+    this.props.currentEventsToMain(this.state.events,false)
+
   }
 
   render(){
       return(
         <div>
-          {this.state.isShowing ? <NewEvent handleNewEventSubmit={this.handleNewEventSubmit} toggleNewEventForm={this.toggleNewEventForm}/> : null}
           {this.state.currentArtist.name? <h4> {this.state.currentArtist.name} s calender </h4>:<h4>Calender</h4>}
-          <div className ='event_labels row text-center'>
-            <br></br>
-            <div className='col-md-2'>
+          {this.state.showNewEventForm === true ?
+            <NewEvent clickedDate = {this.props.clickedDate} handleNewEventSubmit={this.handleNewEventSubmit} />
+            :
+            <div className='event_list'>
+              <AllEvents events={this.state.events} handleDeleteEvent={this.handleDeleteEvent} handleUpdateEvent = {this.handleUpdateEvent}/>
             </div>
-            <div className='col-md-3'>
-              <h5><b>Genre</b></h5>
-            </div>
-            <div className='col-md-4'>
-              <h5><b>Name</b></h5>
-            </div>
-            <div className='col-md-3'>
-              <h5><b>Date</b></h5>
-            </div>
-          </div>
-          <div className='event_list'>
-            <AllEvents events={this.state.events} handleDeleteEvent={this.handleDeleteEvent} handleUpdateEvent = {this.handleUpdateEvent}/>
-          </div>
+        }
       </div>
       )
     }

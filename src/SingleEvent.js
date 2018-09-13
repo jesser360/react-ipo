@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class SingleEvent extends React.Component{
+class SingleEvent extends Component{
 
   constructor(props){
     super(props);
@@ -27,7 +27,7 @@ class SingleEvent extends React.Component{
 
   render(){
     let title = this.state.editable ?<input type='text' ref={input => this.title = input} defaultValue={this.props.event.title}/>:<span>{this.props.event.title}</span>
-  let start = this.state.editable ?<input type='text' ref={input => this.start = input} defaultValue={new Date(this.props.event.start).toISOString().substr(0,10)} type="date" />:<span>{new Date(this.props.event.start).toLocaleDateString('en-US',{weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',timeZone: 'UTC'})}</span>
+    let start = this.state.editable ?<input type='text' ref={input => this.start = input} defaultValue={new Date(this.props.event.start).toISOString().substr(0,10)} type="date" />:<span>{new Date(this.props.event.start).toLocaleDateString('en-US',{weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',timeZone: 'UTC'})}</span>
     let genre = this.state.editable ?<input type='text' ref={input => this.genre = input} defaultValue={this.props.event.genre}/>:<span>{this.props.event.genre}</span>
     let note = this.state.editable ?<input type='text' ref={input => this.note = input} defaultValue={this.props.event.note}/>:<span>{this.props.event.note}</span>
 
