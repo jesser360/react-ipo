@@ -27,7 +27,6 @@ class ArtistsBody extends Component {
       })
     }
     componentWillReceiveProps(props) {
-      console.log(props.authToken)
       axios.get('http://localhost:3001/api/v1/artists.json',{ 'headers': { 'Authorization': props.authToken }})
       .then(response => {
         this.setState({artists: response.data,authToken:props.authToken})

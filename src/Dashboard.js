@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import axios from 'axios'
 import './Dashboard.css';
+
 import ArtistsBody from './ArtistsBody';
 import EventsBody from './EventsBody';
 import CalendarBody from './CalendarBody';
-import axios from 'axios'
+import AuthService from './AuthService';
+import withAuth from './withAuth';
+const Auth = new AuthService();
+
 
 
   class Dashboard extends Component {
@@ -24,18 +28,19 @@ import axios from 'axios'
         this.getCurrentArtistFromBody = this.getCurrentArtistFromBody.bind(this)
         this.getCurrentEventsFromBody = this.getCurrentEventsFromBody.bind(this)
         this.addNewEvent = this.addNewEvent.bind(this)
+        this.Auth = new AuthService();
       }
 
+      componentWillMount() {
+        if (!Auth.loggedIn()) {
+            this.props.history.replace('/login')
+        }
+      }
       componentDidMount(){
-        axios.post(' http://localhost:3001/api/v1/authenticate', {
-          email: 'example@mail.com',
-          password: '123123123'
-        }).then((response) => {this.setState({ authToken: response.data.auth_token }) })
-        .catch(function (error) {
-          console.log(error);
-        });
+          if (Auth.loggedIn()) {
+            this.setState({authToken:Auth.getToken()})
+          }
       }
-
 
       getCurrentArtistFromBody(data){
           this.setState({currentArtist:data})
@@ -53,9 +58,17 @@ import axios from 'axios'
          })
        }
 
+       handleLogout(){
+           Auth.logout()
+           this.props.history.replace('/login');
+        }
     render(){
       return(
         <div className='container'>
+          <div className='row'>
+            <button type="button" className="form-submit" onClick={this.handleLogout.bind(this)}>Logout</button>
+            <h5>Welcome User #{Auth.getProfile().user_id}</h5>
+          </div>
           <div className='row'>
             <div className ='col-md-3'>
               <div>
@@ -65,10 +78,10 @@ import axios from 'axios'
                 <ArtistsBody authToken={this.state.authToken} currentArtistToMain = {this.getCurrentArtistFromBody} showAllArtists={this.state.showAllArtists} currentArtist={this.state.currentArtist} selectArtist={this.props.selectArtist} artists = {this.state.artists}/>
               </div>
           </div>
-            <div className ='col-md-4'>
+            <div className ='col-md-5'>
               <EventsBody authToken={this.state.authToken} currentEventsToMain={this.getCurrentEventsFromBody} clickedDate={this.state.clickedDate} showNewEventForm={this.state.showNewEventForm} currentArtist={this.state.currentArtist}/>
             </div>
-            <div className ='col-md-5'>
+            <div className ='col-md-4'>
               <CalendarBody authToken={this.state.authToken} addNewEvent={this.addNewEvent} currentArtist={this.state.currentArtist} events={this.state.currentEvents}/>
             </div>
           </div>
@@ -79,3 +92,4 @@ import axios from 'axios'
 
 
 export default Dashboard;
+// export default withAuth(Dashboard);
