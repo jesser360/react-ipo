@@ -116,7 +116,7 @@ class EventsBody extends Component {
         <div>
           {this.state.currentArtist.name? <h4> {this.state.currentArtist.name} s calender </h4>:<h4>Calender</h4>}
           {this.state.showNewEventForm === true ?
-            <NewEvent clickedDate = {this.props.clickedDate} handleNewEventSubmit={this.handleNewEventSubmit} />
+            <NewEvent clickedDate = {this.props.clickedDate} currentEventsToMain={this.props.currentEventsToMain} handleNewEventSubmit={this.handleNewEventSubmit} />
             :
             <div className='event_list'>
               <AllEvents events={this.state.events} handleDeleteEvent={this.handleDeleteEvent} handleUpdateEvent = {this.handleUpdateEvent}/>

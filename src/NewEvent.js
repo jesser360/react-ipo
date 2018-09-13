@@ -17,7 +17,7 @@ const NewEvent = (props) => {
           Title: <input className ='event_title' ref={input => formFields.title = input} placeholder='ex: Interview'/><br></br>
           Genre: <input className ='event_genre' ref={input => formFields.genre = input} placeholder='ex: Press' /><br></br>
           Notes: <input className ='event_notes' ref={input => formFields.note = input} placeholder='ex: Fader Magazine' />
-          <button onClick={() => props.toggleNewEventForm(this)} className='black-btn'>Close</button>
+          <button onClick={() => props.currentEventsToMain(null,false)} className='black-btn'>Close</button>
           <button id='event_submit' className='black-btn' onClick={ () => props.handleNewEventSubmit(formFields.start.value, formFields.end.value, formFields.allDay.checked, formFields.title.value,formFields.genre.value,formFields.note.value)}>Submit</button>
         </div>
       </div>
