@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios'
 import './Dashboard.css';
 
 import ArtistsBody from './ArtistsBody';
 import EventsBody from './EventsBody';
 import CalendarBody from './CalendarBody';
 import AuthService from './AuthService';
-import withAuth from './withAuth';
 const Auth = new AuthService();
 
 
@@ -62,12 +60,12 @@ const Auth = new AuthService();
            Auth.logout()
            this.props.history.replace('/login');
         }
+
     render(){
       return(
         <div className='container'>
           <div className='row'>
             <button type="button" className="form-submit" onClick={this.handleLogout.bind(this)}>Logout</button>
-            <h5>Welcome User #{Auth.getProfile().user_id}</h5>
           </div>
           <div className='row'>
             <div className ='col-md-3'>

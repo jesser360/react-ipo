@@ -22,6 +22,18 @@ export default class AuthService {
         })
     }
 
+    signup(email, password) {
+        // Get a token from api server using the fetch api
+        return axios.post('http://localhost:3001/api/v1/register', {
+          email,
+          password
+        })
+        .then(res => {
+            this.setToken(res.data.auth_token) // Setting the token in localStorage
+            return Promise.resolve(res);
+        })
+    }
+
     loggedIn() {
         // Checks if there is a saved token and it's still valid
         const token = this.getToken() // Getting token from localstorage

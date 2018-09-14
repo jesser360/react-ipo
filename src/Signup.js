@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import AuthService from './AuthService';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Login.css';
 
 
-class Login extends Component {
+class Signup extends Component {
     constructor(){
         super();
         this.handleChange = this.handleChange.bind(this);
@@ -16,18 +15,14 @@ class Login extends Component {
     if(this.Auth.loggedIn())
         this.props.history.replace('/');
     }
-
-    handleSignup(){
-        this.props.history.replace('/signup');
-     }
-    handleForgotPassword(){
-        this.props.history.replace('/signup');
+    handleLogin(){
+        this.props.history.replace('/login');
      }
     render() {
         return (
             <div className="center">
                 <div className="card">
-                    <h1>Login</h1>
+                    <h1>Signup</h1>
                     <form>
                         <input
                             className="form-item"
@@ -45,7 +40,7 @@ class Login extends Component {
                         />
                         <input
                             className="form-submit"
-                            value="Login"
+                            value="SUBMIT"
                             type="submit"
                             onClick={this.handleFormSubmit}
 
@@ -54,12 +49,7 @@ class Login extends Component {
                     <h1></h1>
                     <div className='row'>
                       <div className='col-md-3'>
-                        <button type="button" className="form-submit" onClick={this.handleSignup.bind(this)}>Signup</button>
-                      </div>
-                      <div className='col-md-1'>
-                      </div>
-                      <div className='col-md-8'>
-                        <button type="button" className="form-submit" onClick={this.handleForgotPassword.bind(this)}>Forgot Password</button>
+                        <button type="button" className="form-submit" onClick={this.handleLogin.bind(this)}>Login</button>
                       </div>
                     </div>
                 </div>
@@ -77,7 +67,7 @@ class Login extends Component {
 
     handleFormSubmit(e){
            e.preventDefault();
-           this.Auth.login(this.state.email,this.state.password)
+           this.Auth.signup(this.state.email,this.state.password)
                .then(res =>{
                   this.props.history.replace('/');
                })
@@ -88,4 +78,4 @@ class Login extends Component {
        }
 }
 
-export default Login;
+export default Signup;
