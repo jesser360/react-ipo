@@ -35,14 +35,14 @@ class EventsBody extends Component {
 
     handleNewEventSubmit(start,end,allDay,title,genre,note){
       var taskObj = {start: start, end: end, allDay:true, title:title, genre:genre, note:note,artist_id:this.props.currentArtist.id}
-      axios.post(`http://localhost:3001/api/v1/tasks`,{task:taskObj},{ 'headers': { 'Authorization': this.props.authToken}})
+      axios.post(`https://rails-api-ipo.herokuapp.com/api/v1/tasks`,{task:taskObj},{ 'headers': { 'Authorization': this.props.authToken}})
       .then((response) => {
           this.addNewEvent(taskObj)
         })
       // let body = JSON.stringify({
       //   event: {start: start, end: end, allDay:allDay, title:title, genre:genre, note:note,artist_id:this.state.currentArtist.id}
       // })
-      // fetch('http://localhost:3001/api/v1/events', {
+      // fetch('https://rails-api-ipo.herokuapp.com/api/v1/events', {
       //   method: 'POST',
       //   headers: {
       //     'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ class EventsBody extends Component {
     }
 
     handleDeleteEvent(id){
-      axios.delete(`http://localhost:3001/api/v1/tasks/${id}`,{ 'headers': { 'Authorization': this.props.authToken}})
+      axios.delete(`https://rails-api-ipo.herokuapp.com/api/v1/tasks/${id}`,{ 'headers': { 'Authorization': this.props.authToken}})
       .then((reponse) => {
         this.deleteEvent(id)
       })
@@ -77,7 +77,7 @@ class EventsBody extends Component {
 
     updateCalender(){
       let artist_id = this.state.currentArtist.id;
-      fetch('http://localhost:3001/api/v1/tasks/artist/'+artist_id+'.json')
+      fetch('https://rails-api-ipo.herokuapp.com/api/v1/tasks/artist/'+artist_id+'.json')
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ events: data }) });
     }
@@ -86,7 +86,7 @@ class EventsBody extends Component {
       // console.log(newProps)
       // GETS ALL EVENTS FOR SELECTED ARTIST
       if(newProps.currentArtist.id){
-        axios.get('http://localhost:3001/api/v1/tasks/artist/'+newProps.currentArtist.id+'.json',{ 'headers': { 'Authorization': this.props.authToken }})
+        axios.get('https://rails-api-ipo.herokuapp.com/api/v1/tasks/artist/'+newProps.currentArtist.id+'.json',{ 'headers': { 'Authorization': this.props.authToken }})
         .then(response => {
         this.setState({ events: response.data ,showNewEventForm:newProps.showNewEventForm});
         })
@@ -94,7 +94,7 @@ class EventsBody extends Component {
     }
 
   handleUpdate(taskObj){
-    axios.put(`http://localhost:3001/api/v1/tasks/${taskObj.id}`,{task:taskObj},{ 'headers': { 'Authorization': this.props.authToken}})
+    axios.put(`https://rails-api-ipo.herokuapp.com/api/v1/tasks/${taskObj.id}`,{task:taskObj},{ 'headers': { 'Authorization': this.props.authToken}})
     .then((response) => {
         this.updateEvent(taskObj)
       })

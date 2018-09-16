@@ -20,14 +20,14 @@ class ArtistsBody extends Component {
     }
 
     selectArtist(id){
-      axios.get('http://localhost:3001/api/v1/artists/'+id+'.json',{ 'headers': { 'Authorization': this.state.authToken }})
+      axios.get('https://rails-api-ipo.herokuapp.com/api/v1/artists/'+id+'.json',{ 'headers': { 'Authorization': this.state.authToken }})
       .then(response => {
         this.setState({currentArtist:response.data,showAllArtists:false})
         this.props.currentArtistToMain(response.data,false)
       })
     }
     componentWillReceiveProps(props) {
-      axios.get('http://localhost:3001/api/v1/artists.json',{ 'headers': { 'Authorization': props.authToken }})
+      axios.get('https://rails-api-ipo.herokuapp.com/api/v1/artists.json',{ 'headers': { 'Authorization': props.authToken }})
       .then(response => {
         this.setState({artists: response.data,authToken:props.authToken})
       })

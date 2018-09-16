@@ -4,7 +4,7 @@ import axios from 'axios'
 export default class AuthService {
     // Initializing important variables
     constructor(domain) {
-        this.domain = domain || 'http://localhost:3001' // API server domain
+        this.domain = domain || 'https://rails-api-ipo.herokuapp.com' // API server domain
         this.fetch = this.fetch.bind(this) // React binding stuff
         this.login = this.login.bind(this)
         this.getProfile = this.getProfile.bind(this)
@@ -12,7 +12,7 @@ export default class AuthService {
 
     login(email, password) {
         // Get a token from api server using the fetch api
-        return axios.post(' http://localhost:3001/api/v1/authenticate', {
+        return axios.post(' https://rails-api-ipo.herokuapp.com/api/v1/authenticate', {
           email,
           password
         })
@@ -24,7 +24,7 @@ export default class AuthService {
 
     signup(email, password) {
         // Get a token from api server using the fetch api
-        return axios.post('http://localhost:3001/api/v1/register', {
+        return axios.post('https://rails-api-ipo.herokuapp.com/api/v1/register', {
           email,
           password
         })
