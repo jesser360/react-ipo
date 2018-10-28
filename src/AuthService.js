@@ -1,25 +1,85 @@
 import decode from 'jwt-decode';
 import axios from 'axios'
+import auth0 from 'auth0-js';
+// import {HashRouter,Route} from 'react-router-dom'
+
 
 export default class AuthService {
+
+    auth0 = new auth0.WebAuth({
+     domain: 'ipo.auth0.com',
+     clientID: '819L7Ucik9a3CHqkMYgg-hRNb8Q7hQde',
+     redirectUri: 'http://localhost:3000/',
+     responseType: 'token id_token',
+     scope: 'openid email profile'
+   });
+
     // Initializing important variables
     constructor(domain) {
         this.domain = domain || 'https://rails-api-ipo.herokuapp.com' // API server domain
-        this.fetch = this.fetch.bind(this) // React binding stuff
+        this.fetch = this.fetch.bind(this)
         this.login = this.login.bind(this)
         this.getProfile = this.getProfile.bind(this)
+        this.auth0Login = this.auth0Login.bind(this)
+        this.auth0Logout = this.auth0Logout.bind(this)
+        this.handleAuthentication = this.handleAuthentication
     }
+
+    auth0Login() {
+      console.log('loggin in')
+     this.auth0.authorize();
+   }
+
+   handleAuthentication() {
+    this.auth0.parseHash((err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        this.setSession(authResult);
+        console.log(authResult)
+      } else if (err) {
+        window.location = "/auth0-login"
+        console.log(err);
+        alert(`Error: ${err.error}. Check the console for further details.`);
+      }
+    });
+  }
+
+  setSession(authResult) {
+    // Set the time that the access token will expire at
+    let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+    localStorage.setItem('access_token', authResult.accessToken);
+    localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem('email', authResult.idTokenPayload.email);
+    localStorage.setItem('name', authResult.idTokenPayload.name);
+    localStorage.setItem('expires_at', expiresAt);
+    // navigate to the home route
+    window.location = "/"
+  }
+
+  auth0Logout() {
+    // Clear access token and ID token from local storage
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
+    // navigate to the home route
+  }
+
+  isAuth0Authenticated() {
+    // Check whether the current time is past the
+    // access token's expiry time
+    let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    return new Date().getTime() < expiresAt;
+  }
 
     login(email, password) {
         // Get a token from api server using the fetch api
-        return axios.post(' https://rails-api-ipo.herokuapp.com/api/v1/authenticate', {
-          email,
-          password
-        })
-        .then(res => {
-            this.setToken(res.data.auth_token) // Setting the token in localStorage
-            return Promise.resolve(res);
-        })
+        // return axios.post(' https://rails-api-ipo.herokuapp.com/api/v1/authenticate', {
+        //   email,
+        //   password
+        // })
+        // .then(res => {
+        //     this.setToken(res.data.auth_token) // Setting the token in localStorage
+        //     return Promise.resolve(res);
+        // })
     }
 
     signup(email, password) {
