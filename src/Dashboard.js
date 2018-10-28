@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Dashboard.css';
+// import auth0 from 'auth0-js';
 
 import ArtistsBody from './ArtistsBody';
 import EventsBody from './EventsBody';
 import CalendarBody from './CalendarBody';
 import AuthService from './AuthService';
-const Auth = new AuthService();
+// const Auth = new AuthService();
 
-
+const auth = new AuthService();
+auth.login();
+auth.handleAuthentication();
 
   class Dashboard extends Component {
 
@@ -30,13 +33,14 @@ const Auth = new AuthService();
       }
 
       componentWillMount() {
-        if (!Auth.loggedIn()) {
-            this.props.history.replace('/login')
+        if (!this.Auth.isAuth0Authenticated()) {
+            this.props.history.replace('/auth0-login')
         }
       }
       componentDidMount(){
-          if (Auth.loggedIn()) {
-            this.setState({authToken:Auth.getToken()})
+        console.log(localStorage.getItem('email'))
+          if (this.Auth.isAuth0Authenticated()) {
+            this.setState({authToken:localStorage.getItem('access_token')})
           }
       }
 
@@ -49,7 +53,6 @@ const Auth = new AuthService();
        }
 
        addNewEvent(date){
-         console.log('helo from add new event',date)
          this.setState({
            clickedDate:date,
            showNewEventForm:true
@@ -57,15 +60,17 @@ const Auth = new AuthService();
        }
 
        handleLogout(){
-           Auth.logout()
-           this.props.history.replace('/login');
+           this.Auth.auth0Logout()
+           this.props.history.replace('/auth0-login');
         }
 
     render(){
+      const user_email = localStorage.getItem('name')
       return(
         <div className='container'>
           <div className='row'>
             <button type="button" className="form-submit" onClick={this.handleLogout.bind(this)}>Logout</button>
+            <h3> Welcome {user_email}</h3>
           </div>
           <div className='row'>
             <div className ='col-md-3'>
