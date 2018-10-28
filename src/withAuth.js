@@ -2,7 +2,7 @@
 // import AuthService from './AuthService';
 //
 // export default function withAuth(AuthComponent) {
-//   const Auth = new AuthService('http://localhost:3001/api/v1/authenticate');
+//   const Auth = new AuthService('https://rails-api-ipo.herokuapp.com/api/v1/authenticate');
 //
 //
 //   class AuthWrapped extends Component {

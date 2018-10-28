@@ -180,6 +180,10 @@
 		"selected_items":
 		[
 			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
 				"pack",
 				"Package Control: Install Package"
 			],
@@ -217,6 +221,7 @@
 	],
 	"file_history":
 	[
+		"/Users/max/projects/IPO/app/react-ipo/src/AllArtists.js",
 		"/Users/max/Documents/Web Projects/Duane Carlisle/Coach Carlisle/_custom.css",
 		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/boss-child/template-parts/header-fluid-layout-column.php",
 		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/boss-child/partials/homepage-header.php",
@@ -343,8 +348,7 @@
 		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/portfolio.less",
 		"/Users/max/Documents/Web Projects/Duane Carlisle/Coach Carlisle/home.html",
 		"/Users/max/Documents/Web Projects/Duane Carlisle/Coach Carlisle/_executives.html",
-		"/Users/max/Desktop/Portfolio/site/wp-content/themes/airmax/style.css",
-		"/Users/max/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+		"/Users/max/Desktop/Portfolio/site/wp-content/themes/airmax/style.css"
 	],
 	"find":
 	{

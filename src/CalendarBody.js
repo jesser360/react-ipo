@@ -16,7 +16,7 @@ class CalendarBody extends Component {
 
   componentWillReceiveProps(newProps){
     if(newProps.currentArtist.id){
-      axios.get('http://localhost:3001/api/v1/tasks/artist/'+newProps.currentArtist.id+'.json',{ 'headers': { 'Authorization': this.props.authToken }})
+      axios.get('https://rails-api-ipo.herokuapp.com/api/v1/tasks/artist/'+newProps.currentArtist.id+'.json',{ 'headers': { 'Authorization': this.props.authToken }})
       .then(response => {
       this.setState({ events: response.data });
       })
