@@ -11,21 +11,14 @@ module.exports = function(grunt) {
 					]
 				},
 				files: {
-					'style.css': 'assets/src/less/style.less'
+					'src/index.css': 'less/index.less'
 				}
 			}
 		},
 
-  	uglify: {
-	    build: {
-	      src: 'assets/src/js/*.js',
-	      dest: 'assets/production-assets/js/scripts.min.js'
-	    }
-		},
-
 		watch: {
 			css: {
-				files: ['assets/src/less/*.less'],
+				files: ['less/*.less'],
 				tasks: ['less'],
 				options: {
 					livereload: true
@@ -42,8 +35,7 @@ module.exports = function(grunt) {
   });
 
 	grunt.loadNpmTasks('grunt-contrib-less-compiler');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('default', ['less', 'uglify']);
+	grunt.registerTask('default', ['less']);
 };
