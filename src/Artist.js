@@ -13,7 +13,7 @@ class Artist extends Component{
     let name = this.props.currentArtist ? <span>{this.props.currentArtist.name}</span>: <span>{this.props.artist.name}</span>
     let bio = this.props.currentArtist ? <span>{this.props.currentArtist.bio}</span>: <span>{this.props.artist.bio}</span>
     let hometown = this.props.currentArtist ? <span>{this.props.currentArtist.hometown}</span>: <span>{this.props.artist.hometown}</span>
-      return(
+    return(
           <div>
             {!this.props.currentArtist ?
               <div className ='row'>
@@ -26,6 +26,7 @@ class Artist extends Component{
               </div>
             :
               <div >
+                <button className='black-btn' onClick={() =>this.props.toggleAllArtists()}>Back to All Artists</button>
                 <div className ='row'>
                   <div className='text-center'>
                     <h4><b>{name}</b></h4>
@@ -34,8 +35,8 @@ class Artist extends Component{
                 <div className ='row'>
                   <h5>BIO: {bio}</h5>
                   <h5>HOMETOWN: {hometown}</h5>
-                  <button className='black-btn' onClick={() =>this.props.toggleAllArtists()}>All Artists</button>
                 </div>
+                <button className='black-btn' onClick={() =>this.props.handleDeleteArtist(this.props.currentArtist.id)}>Delete</button>
               </div>
             }
             <hr></hr>

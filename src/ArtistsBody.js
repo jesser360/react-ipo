@@ -16,7 +16,7 @@ class ArtistsBody extends Component {
       };
       this.toggleAllArtists = this.toggleAllArtists.bind(this)
       this.selectArtist = this.selectArtist.bind(this)
-
+      this.handleDeleteArtist = this.handleDeleteArtist.bind(this)
     }
 
     selectArtist(id){
@@ -26,6 +26,7 @@ class ArtistsBody extends Component {
         this.props.currentArtistToMain(response.data,false)
       })
     }
+
     componentWillReceiveProps(props) {
       axios.get('https://rails-api-ipo.herokuapp.com/api/v1/artists.json',{ 'headers': { 'Authorization': props.authToken }})
       .then(response => {
@@ -36,17 +37,33 @@ class ArtistsBody extends Component {
 
     toggleAllArtists(){
       this.setState({
-        showAllArtists: this.props.showAllArtists
+        showAllArtists: true
       })
     }
-
+    handleDeleteArtist(id){
+      console.log("deleting")
+      axios.delete(`https://rails-api-ipo.herokuapp.com/api/v1/artists/`+id,{ 'headers': { 'Authorization': this.props.authToken}})
+      .then((response) => {
+          this.deleteArtist()
+          console.log(response)
+        })
+    }
+    deleteArtist(artist){
+      axios.get('https://rails-api-ipo.herokuapp.com/api/v1/artists.json',{ 'headers': { 'Authorization': this.state.authToken }})
+      .then(response => {
+        this.setState({artists: response.data,showAllArtists: true})
+      })
+      .catch(error => console.log(error))
+    }
 
   render(){
       return(
         <div >
           <div >
-            {!this.state.showAllArtists ? <Artist currentArtist={this.state.currentArtist} toggleAllArtists={this.toggleAllArtists}/> :
-            <AllArtists artists={this.state.artists} selectArtist={this.selectArtist} /> }
+            {(this.state.showAllArtists===true)?
+              <AllArtists artists={this.state.artists} showAllArtists ={this.state.showAllArtists} selectArtist={this.selectArtist} />
+              :
+              <Artist handleDeleteArtist={this.handleDeleteArtist} currentArtist={this.state.currentArtist} toggleAllArtists={this.toggleAllArtists}/>}
           </div>
       </div>
       )
