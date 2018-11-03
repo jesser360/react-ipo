@@ -44,7 +44,7 @@ import axios from 'axios'
       }
 
     render(){
-      const user_email = localStorage.getItem('name')
+      console.log(localStorage.getItem('name'))
       return(
         <div className='container'>
           <div className='row'>

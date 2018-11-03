@@ -44,16 +44,15 @@ class ArtistsBody extends Component {
       console.log("deleting")
       axios.delete(`https://rails-api-ipo.herokuapp.com/api/v1/artists/`+id,{ 'headers': { 'Authorization': this.props.authToken}})
       .then((response) => {
-          this.deleteArtist()
+          this.deleteArtist(id)
           console.log(response)
         })
     }
-    deleteArtist(artist){
-      axios.get('https://rails-api-ipo.herokuapp.com/api/v1/artists.json',{ 'headers': { 'Authorization': this.state.authToken }})
-      .then(response => {
-        this.setState({artists: response.data,showAllArtists: true})
+    deleteArtist(id){
+      let newArtistState = this.state.artists.filter((artist) => artist.id !== id)
+      this.setState({
+        artists: newArtistState,showAllArtists: true
       })
-      .catch(error => console.log(error))
     }
 
   render(){
