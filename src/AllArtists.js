@@ -19,7 +19,7 @@ constructor(props) {
   }
 
   componentWillReceiveProps(props) {
-    axios.get('http://localhost:3001/api/v1/artists.json',{ 'headers': { 'Authorization': props.authToken }})
+    axios.get('https://rails-api-ipo.herokuapp.com/api/v1/artists.json',{ 'headers': { 'Authorization': props.authToken }})
     .then(response => {
       this.setState({artists: response.data,authToken:props.authToken})
     })
@@ -29,14 +29,13 @@ constructor(props) {
     handleNewArtistSubmit(name,bio,hometown,image){
       // TODO:CHANGE ARTIST TO BELONG TO USER BY EMAILS or USER GROUPS
       var artistObj = {name: name, bio: bio, hometown:hometown, image:image}
-      axios.post(`http://localhost:3001/api/v1/artists`,{artist:artistObj},{ 'headers':
-                { 'Authorization': this.props.authToken}})
+      axios.post(`https://rails-api-ipo.herokuapp.com/api/v1/artists`,{artist:artistObj},{ 'headers': { 'Authorization': this.props.authToken}})
       .then((response) => {
           this.addNewArtist(artistObj)
         })
     }
     addNewArtist(artist){
-      axios.get('http://localhost:3001/api/v1/artists.json',{ 'headers': { 'Authorization': this.state.authToken }})
+      axios.get('https://rails-api-ipo.herokuapp.com/api/v1/artists.json',{ 'headers': { 'Authorization': this.state.authToken }})
       .then(response => {
         this.setState({artists: response.data,showAllArtists:false})
       })

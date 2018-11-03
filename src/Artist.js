@@ -33,7 +33,7 @@ class Artist extends Component{
                 <button className='black-btn' onClick={() =>this.props.toggleAllArtists()}>Back to All Artists</button>
                 <div className ='row'>
                   <div className='text-center'>
-                    <img src={image}/>
+                    {image}
                   </div>
                 </div>
                 <div className ='row'>
