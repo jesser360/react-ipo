@@ -17,8 +17,8 @@ class NewArtist extends Component{
   }
 
   fileChangedHandler = (event) => {
-    const file = event.target.files[0]
     var reader = new FileReader();
+    const file = event.target.files[0]
     var url = reader.readAsDataURL(file);
     reader.onloadend = function (e) {
        this.setState({
@@ -57,8 +57,7 @@ class NewArtist extends Component{
           <div className='row'>
             Image: <input type="file" onChange={this.fileChangedHandler} ref={input => formFields.image = input}/>
           {this.state.artistImage ?
-            <img style={{"height" : "100px", "width" : "100px"}} src={this.state.artistImage}/>
-
+            <img style={{"height" : "100px", "width" : "100px"}} src={this.state.artistImage} alt="Artist"/>
           :
           null}
         </div>

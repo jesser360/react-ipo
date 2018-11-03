@@ -27,12 +27,10 @@ class ArtistsBody extends Component {
       })
     }
 
-    componentWillReceiveProps(props) {
-      axios.get('https://rails-api-ipo.herokuapp.com/api/v1/artists.json',{ 'headers': { 'Authorization': props.authToken }})
-      .then(response => {
-        this.setState({artists: response.data,authToken:props.authToken})
-      })
-      .catch(error => console.log(error))
+    componentWillReceiveProps(newProps) {
+      if(newProps.artists){
+        this.setState({artists:newProps.artists})
+      }
     }
 
     toggleAllArtists(){
@@ -41,11 +39,9 @@ class ArtistsBody extends Component {
       })
     }
     handleDeleteArtist(id){
-      console.log("deleting")
       axios.delete(`https://rails-api-ipo.herokuapp.com/api/v1/artists/`+id,{ 'headers': { 'Authorization': this.props.authToken}})
       .then((response) => {
           this.deleteArtist(id)
-          console.log(response)
         })
     }
     deleteArtist(id){
@@ -59,10 +55,12 @@ class ArtistsBody extends Component {
       return(
         <div >
           <div >
-            {(this.state.showAllArtists===true)?
-              <AllArtists artists={this.state.artists} showAllArtists ={this.state.showAllArtists} selectArtist={this.selectArtist} />
+              {(this.state.showAllArtists===true)?
+              <AllArtists artists={this.state.artists} showAllArtists ={this.state.showAllArtists}
+                  selectArtist={this.selectArtist} />
               :
-              <Artist handleDeleteArtist={this.handleDeleteArtist} currentArtist={this.state.currentArtist} toggleAllArtists={this.toggleAllArtists}/>}
+              <Artist handleDeleteArtist={this.handleDeleteArtist} currentArtist={this.state.currentArtist}
+                  toggleAllArtists={this.toggleAllArtists}/>}
           </div>
       </div>
       )

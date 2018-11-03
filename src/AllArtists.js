@@ -19,11 +19,9 @@ constructor(props) {
   }
 
   componentWillReceiveProps(props) {
-    axios.get('https://rails-api-ipo.herokuapp.com/api/v1/artists.json',{ 'headers': { 'Authorization': props.authToken }})
-    .then(response => {
-      this.setState({artists: response.data,authToken:props.authToken})
-    })
-    .catch(error => console.log(error))
+      if(props.artists){
+        this.setState({authToken:props.authToken,artists:props.artists})
+      }
   }
 
     handleNewArtistSubmit(name,bio,hometown,image){

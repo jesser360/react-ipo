@@ -14,8 +14,8 @@ class Artist extends Component{
     let bio = this.props.currentArtist ? <span>{this.props.currentArtist.bio}</span>: <span>{this.props.artist.bio}</span>
     let hometown = this.props.currentArtist ? <span>{this.props.currentArtist.hometown}</span>: <span>{this.props.artist.hometown}</span>
     let image = this.props.currentArtist ?
-      <img style={{"height" : "100px", "width" : "100px"}} src={this.props.currentArtist.image_url}/> :
-      <img style={{"height" : "100px", "width" : "100px"}} src={this.props.artist.image_url}/>
+      <img style={{"height" : "100px", "width" : "100px"}} src={this.props.currentArtist.image_url} alt="Artist"/> :
+      <img style={{"height" : "100px", "width" : "100px"}} src={this.props.artist.image_url} alt="Artist"/>
     return(
           <div>
             {!this.props.currentArtist ?

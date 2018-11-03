@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Dashboard.css';
+import axios from 'axios'
 // import auth0 from 'auth0-js';
 
 import ArtistsBody from './ArtistsBody';
@@ -38,9 +39,14 @@ auth.handleAuthentication();
         }
       }
       componentDidMount(){
-        console.log(localStorage.getItem('email'))
           if (this.Auth.isAuth0Authenticated()) {
-            this.setState({authToken:localStorage.getItem('access_token')})
+            this.setState({authToken:localStorage.getItem('access_token')},function(){
+              axios.get('https://rails-api-ipo.herokuapp.com/api/v1/artists.json',{ 'headers': { 'Authorization': this.state.authToken }})
+              .then(response => {
+                this.setState({artists: response.data})
+              })
+              .catch(error => console.log(error))
+            })
           }
       }
 
