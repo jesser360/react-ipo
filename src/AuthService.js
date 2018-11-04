@@ -4,12 +4,19 @@ import auth0 from 'auth0-js';
 // import {HashRouter,Route} from 'react-router-dom'
 
 
+var redirectUrl = '';
+if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+  redirectUrl = 'http://localhost:3000'
+  } else {
+  redirectUrl = 'https://ipo-react.herokuapp.com/'
+  }
+
 export default class AuthService {
 
     auth0 = new auth0.WebAuth({
      domain: 'ipo.auth0.com',
      clientID: '819L7Ucik9a3CHqkMYgg-hRNb8Q7hQde',
-     redirectUri: 'https://ipo-react.herokuapp.com/',
+     redirectUri: redirectUrl,
      responseType: 'token id_token',
      scope: 'openid email profile'
    });
