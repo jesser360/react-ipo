@@ -24,10 +24,10 @@ import axios from 'axios'
       }
 
       sendDocument(){
-        axios.post(`https://rails-api-ipo.herokuapp.com/api/v1/docusign/`,{ 'headers': { 'Authorization': this.props.authToken}})
-        // .then((response) => {
-        //     this.addNewEvent(taskObj)
-        //   })
+        axios.post(`http://localhost:3001/api/v1/docusign/`,{ 'headers': { 'Authorization': this.props.authToken}})
+        .then((response) => {
+            console.log(response)
+          })
         // let body = JSON.stringify({
         //   event: {start: start, end: end, allDay:allDay, title:title, genre:genre, note:note,artist_id:this.state.currentArtist.id}
         // })
@@ -44,7 +44,7 @@ import axios from 'axios'
       }
 
     render(){
-      const user_email = localStorage.getItem('name')
+      console.log(localStorage.getItem('name'))
       return(
         <div className='container'>
           <div className='row'>
