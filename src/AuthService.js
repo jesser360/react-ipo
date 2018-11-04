@@ -5,14 +5,12 @@ import auth0 from 'auth0-js';
 
 
 var redirectUrl = '';
+// TODO CHANGE TO ENV VARIABLES
 if (window.location.href.includes("localhost")) {
     redirectUrl = 'http://localhost:3000'
   } else {
     redirectUrl = 'https://ipo-react.herokuapp.com/'
   }
-  console.log("WINDOW URL",window.location.href)
-  console.log("redirect",redirectUrl)
-
 
 export default class AuthService {
 

@@ -28,11 +28,11 @@ class Auth0Login extends Component {
     const { isAuthenticated } = this.props.auth;
 
     return (
-      <div>
+      <div className="container">
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">Auth0 Login For IPO </a>
+              <h3>Please login to get started</h3>
             </Navbar.Brand>
             {
                   <Button
@@ -56,6 +56,9 @@ class Auth0Login extends Component {
             }
           </Navbar.Header>
         </Navbar>
+        <div className="row">
+          <h3>WELCOME TO THE IPO APP</h3>
+        </div>
       </div>
     );
   }
