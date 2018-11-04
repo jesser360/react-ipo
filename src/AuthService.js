@@ -9,7 +9,7 @@ export default class AuthService {
     auth0 = new auth0.WebAuth({
      domain: 'ipo.auth0.com',
      clientID: '819L7Ucik9a3CHqkMYgg-hRNb8Q7hQde',
-     redirectUri: 'http://localhost:3000/',
+     redirectUri: 'https://ipo-react.herokuapp.com/',
      responseType: 'token id_token',
      scope: 'openid email profile'
    });
