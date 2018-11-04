@@ -10,6 +10,8 @@ import CalendarBody from './CalendarBody';
 import AuthService from './AuthService';
 // const Auth = new AuthService();
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 const auth = new AuthService();
 auth.login();
 auth.handleAuthentication();
@@ -81,6 +83,7 @@ auth.handleAuthentication();
             <h2> Welcome {first_name}</h2>
             <div>
               <h3>My Tasks</h3>
+              <i class="fas fa-bell"></i>
             </div>
             <div>
               <h3>My Projects</h3>
@@ -94,7 +97,7 @@ auth.handleAuthentication();
             <button type="button" className="form-submit" onClick={this.handleLogout.bind(this)}>Logout</button>
           </div>
             <div className='col-md-11 main-content'>
-              <div className ='col-md-3'>
+              <div className ='col-md-3 artists-section'>
                 <div>
                   <div className ='text-center'>
                     <h2>Artists</h2>
