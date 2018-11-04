@@ -5,13 +5,13 @@ import auth0 from 'auth0-js';
 
 
 var redirectUrl = '';
-if (process.env.NODE_ENVIRONMENT === 'production') {
-    redirectUrl = 'https://ipo-react.herokuapp.com/'
-  } else {
+if (window.location.href.includes("localhost")) {
     redirectUrl = 'http://localhost:3000'
+  } else {
+    redirectUrl = 'https://ipo-react.herokuapp.com/'
   }
-  console.log("DEV ENV",process.env.NODE_ENVIRONMENT)
-  console.log(redirectUrl)
+  console.log("WINDOW URL",window.location.href)
+  console.log("redirect",redirectUrl)
 
 
 export default class AuthService {
