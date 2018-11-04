@@ -7,6 +7,11 @@ import Login from './Login';
 import Signup from './Signup';
 import Auth0Login from './Auth0Login';
 import AuthService from './AuthService';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStroopwafel } from '@fortawesome/free-solid-svg-icons';
+
+// library.add(faStroopwafel);
   <script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script>
   const auth = new AuthService();
 

@@ -17,15 +17,15 @@ class Artist extends Component{
       <img style={{"height" : "100px", "width" : "100px"}} src={this.props.currentArtist.image_url} alt="Artist"/> :
       <img style={{"height" : "100px", "width" : "100px"}} src={this.props.artist.image_url} alt="Artist"/>
     return(
-          <div>
+          <div className="artist-container">
             {!this.props.currentArtist ?
               <div className ='row'>
-                <div className='col-md-4 text-center'>
-                  <button className='black-btn' onClick={() => this.props.selectArtist(this.props.artist.id)}>Select</button>
-                </div>
-                <div className='col-md-6 text-center'>
+                <div className='col-sm-12'>
                   <h5><b>{name}</b></h5>
                   {image}
+                </div>
+                <div className='col-sm-12'>
+                  <button className='black-btn' onClick={() => this.props.selectArtist(this.props.artist.id)}>Select</button>
                 </div>
               </div>
             :
@@ -48,7 +48,6 @@ class Artist extends Component{
                 <button className='black-btn' onClick={() =>this.props.handleDeleteArtist(this.props.currentArtist.id)}>Delete</button>
               </div>
             }
-            <hr></hr>
         </div>
         )
       }
