@@ -73,28 +73,42 @@ auth.handleAuthentication();
     render(){
       const user_email = localStorage.getItem('name')
       return(
-        <div className='container'>
+        <div className='container' id='main'>
           <div className='row'>
+          <div className='col-md-1 account-bar'>
+            <h2> Welcome {user_email}</h2>
+            <div>
+              <h3>My Tasks</h3>
+            </div>
+            <div>
+              <h3>My Projects</h3>
+            </div>
+            <div>
+              <h3>My Chats</h3>
+            </div>
+            <div>
+              <h3>My Artists</h3>
+            </div>
             <button type="button" className="form-submit" onClick={this.handleLogout.bind(this)}>Logout</button>
-            <h3> Welcome {user_email}</h3>
           </div>
-          <div className='row'>
-            <div className ='col-md-3'>
-              <div>
-                <div className ='text-center'>
-                  <h4><b>Artists</b></h4>
+            <div className='col-md-11 main-content'>
+              <div className ='col-md-3'>
+                <div>
+                  <div className ='text-center'>
+                    <h2>Artists</h2>
+                  </div>
+                  <ArtistsBody authToken={this.state.authToken} currentArtistToMain = {this.getCurrentArtistFromBody} showAllArtists={this.state.showAllArtists} currentArtist={this.state.currentArtist} selectArtist={this.props.selectArtist} artists = {this.state.artists}/>
                 </div>
-                <ArtistsBody authToken={this.state.authToken} currentArtistToMain = {this.getCurrentArtistFromBody} showAllArtists={this.state.showAllArtists} currentArtist={this.state.currentArtist} selectArtist={this.props.selectArtist} artists = {this.state.artists}/>
+            </div>
+              <div className ='col-md-5'>
+                <EventsBody authToken={this.state.authToken} currentEventsToMain={this.getCurrentEventsFromBody} clickedDate={this.state.clickedDate} showNewEventForm={this.state.showNewEventForm} currentArtist={this.state.currentArtist}/>
               </div>
-          </div>
-            <div className ='col-md-5'>
-              <EventsBody authToken={this.state.authToken} currentEventsToMain={this.getCurrentEventsFromBody} clickedDate={this.state.clickedDate} showNewEventForm={this.state.showNewEventForm} currentArtist={this.state.currentArtist}/>
-            </div>
-            <div className ='col-md-4'>
-              <CalendarBody authToken={this.state.authToken} addNewEvent={this.addNewEvent} currentArtist={this.state.currentArtist} events={this.state.currentEvents}/>
+              <div className ='col-md-4'>
+                <CalendarBody authToken={this.state.authToken} addNewEvent={this.addNewEvent} currentArtist={this.state.currentArtist} events={this.state.currentEvents}/>
+              </div>
             </div>
           </div>
-        </div>
+        </div>  
       )
     }
   }

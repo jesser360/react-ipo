@@ -1,0 +1,485 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"padd",
+				"padding\tproperty"
+			],
+			[
+				"pad",
+				"padding-right\tproperty"
+			],
+			[
+				"marg",
+				"margin-top\tproperty"
+			],
+			[
+				"box-",
+				"box-sizing\tproperty"
+			],
+			[
+				"baclc",
+				"background-color\tproperty"
+			],
+			[
+				"do_",
+				"do_shortcode"
+			],
+			[
+				"sp",
+				"space-between\tjustify-content"
+			],
+			[
+				"align",
+				"align-items\tproperty"
+			],
+			[
+				"regist_post_t",
+				"register_post_type"
+			],
+			[
+				"regist",
+				"register_taxonomy\tRegister Taxonomy All Options"
+			],
+			[
+				"textal",
+				"text-align\tproperty"
+			],
+			[
+				"tra",
+				"transparent"
+			],
+			[
+				"Respons",
+				"responseText"
+			],
+			[
+				"contine",
+				"continent"
+			],
+			[
+				"backlc",
+				"background-color\tproperty"
+			],
+			[
+				"con",
+				"continents"
+			],
+			[
+				"pars",
+				"parseInt"
+			],
+			[
+				"font-s",
+				"font-size-md"
+			],
+			[
+				"s",
+				"space-between\tjustify-content"
+			],
+			[
+				"get_user_",
+				"get_user_details"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"lete",
+				"letter-spacing-title"
+			],
+			[
+				"b",
+				"black"
+			],
+			[
+				"site",
+				"site_details"
+			],
+			[
+				"the_e",
+				"the_excerpt"
+			],
+			[
+				"font-si",
+				"font-size-md"
+			],
+			[
+				"marig",
+				"margin-top\tproperty"
+			],
+			[
+				"poi",
+				"position\tproperty"
+			],
+			[
+				"is_archi",
+				"is_archive"
+			],
+			[
+				"box-s",
+				"box-shadow\tproperty"
+			],
+			[
+				"in",
+				"inline-block\tdisplay"
+			],
+			[
+				"fontsy",
+				"font-style\tproperty"
+			],
+			[
+				"font-famil",
+				"font-family-serif"
+			],
+			[
+				"fot",
+				"font-family"
+			],
+			[
+				"fle",
+				"flex-start\talign-self"
+			],
+			[
+				"backgr",
+				"background-color\tproperty"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"flex",
+				"flex-start"
+			],
+			[
+				"list-st",
+				"list-style-type"
+			],
+			[
+				"wid",
+				"width"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 149.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"package control insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package control",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 428.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/max/projects/IPO/app/react-ipo/src"
+	],
+	"file_history":
+	[
+		"/Users/max/projects/IPO/app/react-ipo/src/AllArtists.js",
+		"/Users/max/Documents/Web Projects/Duane Carlisle/Coach Carlisle/_custom.css",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/boss-child/template-parts/header-fluid-layout-column.php",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/boss-child/partials/homepage-header.php",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/boss-child/template-parts/header-middle-column.php",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/assets/src/less/text.less",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/plugins/fiveable/fiveable.php",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/partials/homepage-header.php",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/boss-child/page-templates/homepage.php",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/footer.php",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/functions.php",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/assets/src/less/mixins.less",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/assets/src/less/forms.less",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/assets/src/less/pages.less",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/index.php",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/partials/homepage-content.php",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/assets/src/less/header.less",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/header.php",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/assets/src/less/home.less",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/assets/src/less/variables.less",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/assets/src/less/footer.less",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/page-templates/homepage.php",
+		"/Users/max/dev/www/fiveable/public_html/wp-content/themes/fiveable/assets/src/less/style.less",
+		"/Users/max/projects/gather/assets/src/less/maps.less",
+		"/Users/max/projects/gather/assets/production-assets/ajax/trips.json",
+		"/Users/max/projects/gather/assets/production-assets/ajax/destinations.json",
+		"/Users/max/projects/gather/assets/src/less/mixins.less",
+		"/Users/max/projects/gather/assets/src/less/search.less",
+		"/Users/max/projects/gather/assets/src/less/header.less",
+		"/Users/max/projects/gather/search-results.html",
+		"/Users/max/projects/gather/assets/src/less/style.less",
+		"/Users/max/projects/gather/assets/src/less/pages.less",
+		"/Users/max/projects/gather/assets/src/less/home.less",
+		"/Users/max/projects/gather/index.html",
+		"/Users/max/projects/gather/destinations.json",
+		"/Users/max/projects/gather/trips.json",
+		"/Users/max/projects/gather/assets/src/less/variables.less",
+		"/Users/max/projects/gather/assets/src/less/forms.less",
+		"/Users/max/projects/gather/assets/src/less/text.less",
+		"/Users/max/gather/Vagrantfile",
+		"/Users/max/projects/gather/style.css",
+		"/Users/max/projects/fleetsmith/svc-www-dev/src/styles/_header.pcss",
+		"/Users/max/projects/fleetsmith/svc-www-dev/src/html/waitlisted.hbs",
+		"/Users/max/projects/fleetsmith/svc-www-dev/src/html/index.hbs",
+		"/Users/max/projects/fleetsmith/svc-www-dev/src/styles/_signup-button.pcss",
+		"/Users/max/projects/fleetsmith/svc-www-dev/src/html/features.hbs",
+		"/Users/max/projects/fleetsmith/svc-www-dev/src/styles/_components.pcss",
+		"/Users/max/projects/fleetsmith/svc-www-dev/src/styles/index.pcss",
+		"/Users/max/projects/fleetsmith/svc-www-dev/src/styles/_signup-section.pcss",
+		"/Users/max/projects/fleetsmith/svc-www-dev/src/styles/_footer.pcss",
+		"/Users/max/projects/fleetsmith/svc-www-dev/src/html/_signup-button.hbs",
+		"/Users/max/Documents/Web Projects/Fleetsmith/svc-www-dev/webpack.config.js",
+		"/Users/max/dev/www/fleetsmith/public_html/wp-content/themes/fleetsmith/header.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/page-templates/homepage.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/home.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/js/scripts.js",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/section-bio.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/partials/post-project.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/analytics.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/header.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/section-portfolio.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/functions.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/archive.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/section-contact.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/sections/section-portfolio.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/pages.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/text.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/single-project.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/sections/section-resume.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/archive.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/section-langauges.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/mixins.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/style.css",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/variables.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/sections/section-bio.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/sections/section-home-header.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/sections/section-contact.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/footer.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/section-services.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/index.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/forms.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/grid.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/images.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/node_modules/verror/README.md",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/footer.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/single-projects.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/partials/pagination.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/single.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/style.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/sections/section-services.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/single-projects.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/sections/section-languages.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/utility.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/header.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/reset.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/node_modules/less/test/less/compression/compression.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/image.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/post.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/portfolio.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/src/less/section-home-header.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/page-templates/page.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/sections/bio.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/sections/portfolio.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/sections/services.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/sections/home-header.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/js/src/scripts.js",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/variables.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/mixins.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/text.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/grid.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/section-portfolio.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/section-home-header.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/section-bio.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/content.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/js/src/lodash.custom.min.js",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/js/analytics.js",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/section-services.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/forms.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/header.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/footer.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/style.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/section-contact.less",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/sections/home.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/sections/contact.php",
+		"/Users/max/dev/www/portfolio/public_html/wp-content/themes/portfolio-theme/assets/less/portfolio.less",
+		"/Users/max/Documents/Web Projects/Duane Carlisle/Coach Carlisle/home.html",
+		"/Users/max/Documents/Web Projects/Duane Carlisle/Coach Carlisle/_executives.html",
+		"/Users/max/Desktop/Portfolio/site/wp-content/themes/airmax/style.css"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 102.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "ipo.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 294.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
