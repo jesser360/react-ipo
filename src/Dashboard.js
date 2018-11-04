@@ -71,12 +71,14 @@ auth.handleAuthentication();
         }
 
     render(){
-      const user_email = localStorage.getItem('name')
+      const name = localStorage.getItem('name')
+      const first_name = name.split(' ')[0]
+
       return(
         <div className='container' id='main'>
           <div className='row'>
           <div className='col-md-1 account-bar'>
-            <h2> Welcome {user_email}</h2>
+            <h2> Welcome {first_name}</h2>
             <div>
               <h3>My Tasks</h3>
             </div>
@@ -108,7 +110,7 @@ auth.handleAuthentication();
               </div>
             </div>
           </div>
-        </div>  
+        </div>
       )
     }
   }

@@ -59,6 +59,7 @@ export default class AuthService {
     localStorage.setItem('email', authResult.idTokenPayload.email);
     localStorage.setItem('name', authResult.idTokenPayload.name);
     localStorage.setItem('expires_at', expiresAt);
+    console.log(authResult.idTokenPayload)
     // navigate to the home route
     window.location = "/"
   }
