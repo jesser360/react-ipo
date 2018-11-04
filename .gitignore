@@ -18,6 +18,7 @@
 
 # npm
 package.json
+package-lock.json
 ../package-lock.json
 
 npm-debug.log*
