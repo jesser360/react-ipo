@@ -1,0 +1,56 @@
+/* IPO Version 0.0.2 */
+
+@import "variables";
+@import "text";
+
+html body {
+	background-color: @grey-light;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: @font-size-sm;
+
+  #main {
+  	padding: @baseSpacing 0;
+
+	  .account-bar {
+	  	background-color: @green-dark;
+	  	border-radius: @borderRadius;
+	  	color: @white;
+	  	padding: @baseSpacing / 2;
+	  	text-align: center;
+
+	  	h2 {
+	  		font-size: @font-size-sm;
+	  		margin-bottom: 0;
+	  	}
+
+	  	> div {
+	  		border-bottom: 1px solid @white;
+	  		margin-bottom: @baseSpacing;
+	  		padding: (@baseSpacing / 2) 0;
+
+	  		h3 {
+	  			font-size: @font-size-xs;
+	  		}
+	  	}
+	  }
+
+
+	  .main-content {
+	  	display: flex;
+
+	  	> div > div {
+	  		background-color: @white;
+	  		border-radius: @borderRadius;
+	  		// box-shadow: @boxShadow;
+	  		padding: @baseSpacing / 2;
+	  		text-align: center;
+
+	  		h2, h4 {
+	  			font-size: @font-size-md;
+	  		}
+	  	}
+	  }
+	}
+}
