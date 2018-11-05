@@ -66,7 +66,6 @@ class NewArtist extends Component{
         :
         <div></div>
         }
-      <hr></hr>
     </div>
       )
     }

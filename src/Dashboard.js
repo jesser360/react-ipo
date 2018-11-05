@@ -10,7 +10,7 @@ import CalendarBody from './CalendarBody';
 import AuthService from './AuthService';
 // const Auth = new AuthService();
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fontawesome/react-fontawesome'
 
 const auth = new AuthService();
 auth.login();
@@ -74,30 +74,72 @@ auth.handleAuthentication();
 
     render(){
       const name = localStorage.getItem('name')
-      const first_name = name.split(' ')[0]
-
+      let first_name=''
+      if(name){
+        first_name = name.split(' ')[0]
+      }
       return(
         <div className='container' id='main'>
           <div className='row'>
           <div className='col-md-1 account-bar'>
             <h2> Welcome {first_name}</h2>
+            <span className='text-button'>Expand</span>
             <div>
+              <FontAwesomeIcon icon="bell" />
               <h3>My Tasks</h3>
-              <i class="fas fa-bell"></i>
+              <i className="fas fa-bell"></i>
+              <div className="toggle-icons">
+                <FontAwesomeIcon icon="plus" />
+                <FontAwesomeIcon icon="chevron-down" />
+              </div>
             </div>
             <div>
+              <FontAwesomeIcon icon="compact-disc" />
               <h3>My Projects</h3>
+              <div className="toggle-icons">
+                <FontAwesomeIcon icon="plus" />
+                <FontAwesomeIcon icon="chevron-down" />
+              </div>              
             </div>
             <div>
+              <FontAwesomeIcon icon="envelope" />
               <h3>My Chats</h3>
+              <div className="toggle-icons">
+                <FontAwesomeIcon icon="plus" />
+                <FontAwesomeIcon icon="chevron-down" />
+              </div>
             </div>
             <div>
+              <FontAwesomeIcon icon="user-circle" />
               <h3>My Artists</h3>
+              <div className="toggle-icons">
+                <FontAwesomeIcon icon="plus" />
+                <FontAwesomeIcon icon="chevron-down" />
+              </div>
             </div>
             <button type="button" className="form-submit" onClick={this.handleLogout.bind(this)}>Logout</button>
           </div>
             <div className='col-md-11 main-content'>
-              <div className ='col-md-3 artists-section'>
+              <div className='row dashboard-header'>
+                <div className='col-md-12'>
+                  <div className='col-md-4'>
+                    <div className='toggle-icons'>
+                      <FontAwesomeIcon icon="chevron-left" />
+                      <FontAwesomeIcon icon="chevron-right" />
+                    </div>
+                    <h1>My Task</h1>
+                  </div>
+                  <div className='col-md-4'>
+
+                  </div>
+                  <div className='col-md-4'>
+                    <form name="search">
+                      <input className ='search' ref={input => formFields.end = input} placeholder='search' type='search'/>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div className ='col-md-3'>
                 <div>
                   <div className ='text-center'>
                     <h2>Artists</h2>

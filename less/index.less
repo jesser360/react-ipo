@@ -2,84 +2,10 @@
 
 @import "variables";
 @import "text";
+@import "forms";
+@import "icons";
 @import "buttons";
 
-@import "artist";
-
-html body {
-	background-color: @grey-light;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  font-size: @font-size-sm;
-
-  .container#main {
-  	max-width: 100%;
-  	padding: @baseSpacing (@baseSpacing * 2);
-
-  	.fc-toolbar .fc-center {
-  		padding-top: @baseSpacing / 2;
-  	}
-
-	  .account-bar {
-	  	background-color: @green-dark;
-	  	border-radius: @borderRadius;
-	  	color: @white;
-	  	padding: @baseSpacing / 2;
-	  	text-align: center;
-
-	  	h2 {
-	  		font-size: @font-size-sm;
-	  		margin-bottom: 0;
-	  	}
-
-	  	> div {
-	  		border-bottom: 1px solid @white;
-	  		margin-bottom: @baseSpacing;
-	  		padding: (@baseSpacing / 2) 0;
-
-	  		h3 {
-	  			font-size: @font-size-xs;
-	  		}
-	  	}
-	  }
-
-
-	  .main-content {
-	  	display: flex;
-
-	  	> div > div {
-	  		background-color: @white;
-	  		border-radius: @borderRadius;
-	  		box-shadow: @boxShadow;
-	  		padding: @baseSpacing / 2;
-	  		text-align: center;
-
-	  		.row {
-	  			display: block;
-	  			padding: @baseSpacing / 2;
-	  			text-align: center;
-	  		}
-
-	  		h2, h4 {
-	  			font-size: @font-size-md;
-	  		}
-	  	}
-	  }
-	}
-}
-
-@media screen and (max-width: 576px) {
-	html body .container#main .main-content {
-		flex-flow: column wrap;
-		padding: 0;
-
-		> div {
-			padding: @baseSpacing 0;
-
-			> div {
-				padding: 0;
-			}
-		}
-	}
-}
+@import "artists";
+@import "calendar";
+@import "dashboard";
