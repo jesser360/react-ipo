@@ -74,7 +74,10 @@ auth.handleAuthentication();
 
     render(){
       const name = localStorage.getItem('name')
-      const first_name = name.split(' ')[0]
+      let first_name=''
+      if(name){
+        first_name = name.split(' ')[0]
+      }
 
       return(
         <div className='container' id='main'>
@@ -83,7 +86,7 @@ auth.handleAuthentication();
             <h2> Welcome {first_name}</h2>
             <div>
               <h3>My Tasks</h3>
-              <i class="fas fa-bell"></i>
+              <i className="fas fa-bell"></i>
             </div>
             <div>
               <h3>My Projects</h3>

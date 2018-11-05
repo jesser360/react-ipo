@@ -41,8 +41,14 @@ export default class AuthService {
    handleAuthentication() {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult);
-        console.log(authResult)
+        axios.get(`https://rails-api-ipo.herokuapp.com/api/v1/findUser/${authResult.idTokenPayload.email}`,{ 'headers': { 'Authorization': authResult.accessToken}})
+        .then(response => {
+          if(typeof(response.data) === 'object'){
+            this.setSession(authResult);
+          }else{
+            window.location = "/auth0-login"
+          }
+        })
       } else if (err) {
         window.location = "/auth0-login"
         console.log(err);
