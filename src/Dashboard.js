@@ -79,6 +79,7 @@ auth.handleAuthentication();
       if(name){
         first_name = name.split(' ')[0]
       }
+
       return(
         <div className='container' id='main'>
           <div className='row'>
