@@ -74,6 +74,7 @@ auth.handleAuthentication();
 
     render(){
       const name = localStorage.getItem('name')
+      let formFields = {}
       let first_name=''
       if(name){
         first_name = name.split(' ')[0]
