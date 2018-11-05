@@ -16,13 +16,13 @@ return(
           <div className='col-md-2'>
           </div>
           <div className='col-md-3'>
-            <h5><b>Genre</b></h5>
+            <h4><b>Genre</b></h4>
           </div>
           <div className='col-md-4'>
-            <h5><b>Name</b></h5>
+            <h4><b>Name</b></h4>
           </div>
           <div className='col-md-3'>
-            <h5><b>Date</b></h5>
+            <h4><b>Date</b></h4>
           </div>
         </div>
         {events}
