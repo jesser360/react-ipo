@@ -10,7 +10,7 @@ import CalendarBody from './CalendarBody';
 import AuthService from './AuthService';
 // const Auth = new AuthService();
 
-import { FontAwesomeIcon } from '@fontawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const auth = new AuthService();
 auth.login();
